@@ -8,6 +8,17 @@ Employee attrition is an important HR problem because high employee turnover can
 
 This project analyzes employee records to identify patterns associated with attrition and presents the findings through an interactive **Power BI dashboard**. A machine-learning model is also included to support employee attrition prediction.
 
+## ⭐ Project Highlights
+
+- Analyzed **1,470 employee records** to identify attrition patterns.
+- Identified **237 employees who left**, representing a **16.12% attrition rate**.
+- Found significantly higher observed attrition among employees working overtime.
+- Built SQL analytical views for department, job role, overtime, satisfaction, and employee risk analysis.
+- Developed a **Random Forest Classifier** for employee attrition prediction.
+- Created an interactive **Power BI dashboard** for HR decision support.
+- Developed a **Streamlit application** to provide an interactive interface for the machine-learning model.
+
+
 ## 🎯 Objectives
 
 - Analyze overall employee attrition.
