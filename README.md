@@ -18,6 +18,21 @@ This project analyzes employee records to identify patterns associated with attr
 * Created an interactive **Power BI dashboard** for HR decision support.
 * Developed a **Streamlit application** providing attrition prediction, probability, risk-level assessment, HR recommendations, and feature-importance analysis.
 
+## 🚀 Live Demo
+
+🔗 **Streamlit Application:**  
+https://employee-attrition-intelligence-nze5mcthkkxnux4dckcgyv.streamlit.app/
+
+The live application allows users to:
+
+- Explore employee attrition analytics.
+- View department and job-role attrition patterns.
+- Enter employee information.
+- Predict employee attrition probability.
+- View employee risk level.
+- Receive HR recommendations.
+- Explore key machine-learning attrition drivers.
+
 ## 🎯 Objectives
 
 * Analyze overall employee attrition.
