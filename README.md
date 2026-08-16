@@ -6,45 +6,46 @@ An end-to-end employee attrition analytics project that combines **Python, SQL, 
 
 Employee attrition is an important HR problem because high employee turnover can increase recruitment costs, reduce productivity, and affect organizational stability.
 
-This project analyzes employee records to identify patterns associated with attrition and presents the findings through an interactive **Power BI dashboard**. A machine-learning model is also included to support employee attrition prediction.
+This project analyzes employee records to identify patterns associated with attrition and presents the findings through an interactive **Power BI dashboard**. A machine-learning model is also included to support employee attrition prediction through an interactive **Streamlit application**.
 
 ## ⭐ Project Highlights
 
-- Analyzed **1,470 employee records** to identify attrition patterns.
-- Identified **237 employees who left**, representing a **16.12% attrition rate**.
-- Found significantly higher observed attrition among employees working overtime.
-- Built SQL analytical views for department, job role, overtime, satisfaction, and employee risk analysis.
-- Developed a **Random Forest Classifier** for employee attrition prediction.
-- Created an interactive **Power BI dashboard** for HR decision support.
-- Developed a **Streamlit application** to provide an interactive interface for the machine-learning model.
-
+* Analyzed **1,470 employee records** to identify attrition patterns.
+* Identified **237 employees who left**, representing a **16.12% attrition rate**.
+* Found significantly higher observed attrition among employees working overtime.
+* Built SQL analytical views for department, job role, overtime, satisfaction, and employee risk analysis.
+* Developed a **Random Forest Classifier** for employee attrition prediction.
+* Created an interactive **Power BI dashboard** for HR decision support.
+* Developed a **Streamlit application** providing attrition prediction, probability, risk-level assessment, HR recommendations, and feature-importance analysis.
 
 ## 🎯 Objectives
 
-- Analyze overall employee attrition.
-- Identify departments and job roles with higher attrition.
-- Compare attrition between employees working overtime and those who do not.
-- Analyze average salary across departments and job roles.
-- Perform data cleaning and quality checks.
-- Store and query employee data using SQL/MySQL.
-- Build a machine-learning model for attrition prediction.
-- Create an interactive Power BI dashboard.
-- Produce a professional analysis report.
+* Analyze overall employee attrition.
+* Identify departments and job roles with higher attrition.
+* Compare attrition between employees working overtime and those who do not.
+* Analyze average salary across departments and job roles.
+* Perform data cleaning and quality checks.
+* Store and query employee data using SQL/MySQL.
+* Build a machine-learning model for attrition prediction.
+* Create an interactive Power BI dashboard.
+* Develop an interactive Streamlit prediction application.
+* Produce a professional analysis report.
 
 ## 🛠️ Technologies Used
 
-| Technology | Purpose |
-|---|---|
-| Python | Data analysis and machine learning |
-| Pandas | Data manipulation and preprocessing |
-| Matplotlib / Seaborn | Data visualization |
-| Scikit-learn | Machine-learning model |
-| Joblib | Saving the trained model and encoders |
-| MySQL | Data storage and SQL analysis |
-| Power BI | Interactive dashboard and visualization |
-| Jupyter Notebook | Exploratory data analysis |
-| Streamlit | Application interface |
-| Git / GitHub | Version control and project sharing |
+| Technology           | Purpose                                 |
+| -------------------- | --------------------------------------- |
+| Python               | Data analysis and machine learning      |
+| Pandas               | Data manipulation and preprocessing     |
+| Matplotlib / Seaborn | Data visualization                      |
+| Scikit-learn         | Machine-learning model                  |
+| Joblib               | Saving the trained model and encoders   |
+| MySQL                | Data storage and SQL analysis           |
+| Power BI             | Interactive dashboard and visualization |
+| Jupyter Notebook     | Exploratory data analysis               |
+| Streamlit            | Machine-learning application interface  |
+| Plotly               | Interactive application visualizations  |
+| Git / GitHub         | Version control and project sharing     |
 
 ## 📂 Project Structure
 
@@ -55,8 +56,12 @@ EMPLOYEE ATTRITION INTELLIGENCE/
 │   ├── raw/
 │   │   └── WA_Fn-UseC_-HR-Employee-Attrition.csv
 │   └── processed/
+│       ├── hr_cleaned.csv
+│       ├── hr_featured.csv
+│       └── queries.sql
 │
 ├── docs/
+│   └── Project Overview.md
 │
 ├── images/
 │   └── dashboard.png
@@ -74,6 +79,8 @@ EMPLOYEE ATTRITION INTELLIGENCE/
 │   └── overtime_analysis.csv
 │
 ├── powerbi/
+│   ├── Employee Attrition Dashboard.pbix
+│   └── analysis.pbix
 │
 ├── python/
 │   ├── analysis.py
@@ -87,6 +94,11 @@ EMPLOYEE ATTRITION INTELLIGENCE/
 │   └── views.sql
 │
 ├── src/
+│   ├── data cleaning.py
+│   ├── eda.py
+│   ├── feature_engineering.py
+│   ├── load_to_mysql.py
+│   └── model.py
 │
 ├── streamlit/
 │   └── app.py
@@ -104,13 +116,13 @@ EMPLOYEE ATTRITION INTELLIGENCE/
 
 The completed analysis contains **1,470 employees**.
 
-- **237 employees** left the organization.
-- **1,233 employees** stayed.
-- Overall attrition rate: **16.12%**.
-- Sales has an attrition rate of approximately **20.63%**.
-- Human Resources has an attrition rate of approximately **19.05%**.
-- Research & Development has an attrition rate of approximately **13.84%**.
-- Employees working overtime show a higher observed attrition rate (**30.53%**) than employees not working overtime (**10.44%**).
+* **237 employees** left the organization.
+* **1,233 employees** stayed.
+* Overall attrition rate: **16.12%**.
+* Sales has an attrition rate of approximately **20.63%**.
+* Human Resources has an attrition rate of approximately **19.05%**.
+* Research & Development has an attrition rate of approximately **13.84%**.
+* Employees working overtime show a higher observed attrition rate (**30.53%**) than employees not working overtime (**10.44%**).
 
 These findings indicate that attrition is not evenly distributed and that employee retention strategies can be targeted toward higher-risk groups.
 
@@ -124,18 +136,18 @@ The dashboard provides an interactive view of employee attrition across departme
 
 The Power BI dashboard, **Employee Attrition Intelligence Dashboard**, contains:
 
-- Total Employees KPI
-- Employees Left KPI
-- Attrition Rate KPI
-- Employees Stayed KPI
-- Department filter
-- Overtime filter
-- Attrition by Department
-- Attrition Rate by Job Role
-- Attrition Rate by Overtime
-- Average Salary by Department
-- Average Salary by Job Role
-- Key business insights
+* Total Employees KPI
+* Employees Left KPI
+* Attrition Rate KPI
+* Employees Stayed KPI
+* Department filter
+* Overtime filter
+* Attrition by Department
+* Attrition Rate by Job Role
+* Attrition Rate by Overtime
+* Average Salary by Department
+* Average Salary by Job Role
+* Key business insights
 
 ## 🤖 Machine Learning
 
@@ -151,21 +163,32 @@ models/
 
 The project uses a **Random Forest Classifier** for classification.
 
+The Streamlit application uses the trained model to provide:
+
+* Employee attrition prediction
+* Attrition probability
+* Risk-level assessment
+* HR recommendations
+* Top feature-importance analysis
+
+> Note: Model predictions are analytical estimates and should not be treated as definitive decisions about individual employees.
+
 ## 🗄️ SQL Analysis
 
 The SQL section contains:
 
-- Database schema
-- Analytical queries
-- SQL views
-- MySQL connection testing
+* Database schema
+* Analytical queries
+* SQL views
+* MySQL connection testing
+* Employee risk analysis
 
 Files:
 
 ```text
 sql/
-├── schema.sql
 ├── queries.sql
+├── schema.sql
 └── views.sql
 ```
 
@@ -196,7 +219,33 @@ Windows:
 pip install -r requirements.txt
 ```
 
-### 4. Run the Streamlit application
+### 4. Configure MySQL
+
+Create the database and employee table using:
+
+```text
+sql/schema.sql
+```
+
+Load the employee data using:
+
+```text
+src/load_to_mysql.py
+```
+
+Run the SQL analysis using:
+
+```text
+sql/queries.sql
+```
+
+Create the analytical views using:
+
+```text
+sql/views.sql
+```
+
+### 5. Run the Streamlit application
 
 ```bash
 streamlit run streamlit/app.py
@@ -225,11 +274,11 @@ The `reports/` directory contains the completed employee attrition analysis repo
 
 Based on the observed patterns:
 
-- Focus retention programs on departments with higher attrition.
-- Investigate workload and overtime among employees with high turnover.
-- Review job roles showing unusually high attrition.
-- Use salary and role-level analysis to identify potential retention concerns.
-- Combine dashboard monitoring with predictive analytics for proactive HR decision-making.
+* Focus retention programs on departments with higher attrition.
+* Investigate workload and overtime among employees with high turnover.
+* Review job roles showing unusually high attrition.
+* Use salary and role-level analysis to identify potential retention concerns.
+* Combine dashboard monitoring with predictive analytics for proactive HR decision-making.
 
 ## ⚠️ Disclaimer
 
@@ -243,4 +292,4 @@ B.Tech Student | Aspiring Data Analyst / Data Scientist
 
 Skills demonstrated in this project include:
 
-**Python • SQL • Power BI • Machine Learning • Data Analysis • Data Visualization • Streamlit**
+**Python • SQL • MySQL • Power BI • Machine Learning • Data Analysis • Data Visualization • Streamlit • Git • GitHub**
