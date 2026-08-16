@@ -92,7 +92,6 @@ col1, col2, col3, col4 = st.columns(4)
 
 
 with col1:
-
     st.metric(
         label="👨‍💼 Total Employees",
         value=len(df)
@@ -100,7 +99,6 @@ with col1:
 
 
 with col2:
-
     attrition_rate = df["Attrition"].mean() * 100
 
     st.metric(
@@ -110,7 +108,6 @@ with col2:
 
 
 with col3:
-
     average_age = df["Age"].mean()
 
     st.metric(
@@ -120,7 +117,6 @@ with col3:
 
 
 with col4:
-
     average_income = df["MonthlyIncome"].mean()
 
     st.metric(
@@ -232,8 +228,7 @@ with col2:
 
     fig_attrition.update_traces(
         textposition="inside",
-        textinfo="percent+label",
-        pull=[0.03, 0.03]
+        textinfo="percent+label"
     )
 
     fig_attrition.update_layout(
@@ -381,8 +376,6 @@ with col2:
 # EMPLOYEE PREDICTION SIDEBAR
 # ============================================================
 
-st.markdown("---")
-
 with st.sidebar:
 
     st.title("🤖 Attrition Predictor")
@@ -392,6 +385,7 @@ with st.sidebar:
     )
 
     st.divider()
+
 
     # ========================================================
     # PERSONAL DETAILS
@@ -416,11 +410,7 @@ with st.sidebar:
 
         marital_status = st.selectbox(
             "Marital Status",
-            [
-                "Single",
-                "Married",
-                "Divorced"
-            ]
+            ["Single", "Married", "Divorced"]
         )
 
         education = st.selectbox(
@@ -430,10 +420,9 @@ with st.sidebar:
 
         education_field = st.selectbox(
             "Education Field",
-            list(
-                encoders["EducationField"].classes_
-            )
+            list(encoders["EducationField"].classes_)
         )
+
 
     # ========================================================
     # JOB DETAILS
@@ -443,23 +432,17 @@ with st.sidebar:
 
         business_travel = st.selectbox(
             "Business Travel",
-            list(
-                encoders["BusinessTravel"].classes_
-            )
+            list(encoders["BusinessTravel"].classes_)
         )
 
         department = st.selectbox(
             "Department",
-            list(
-                encoders["Department"].classes_
-            )
+            list(encoders["Department"].classes_)
         )
 
         job_role = st.selectbox(
             "Job Role",
-            list(
-                encoders["JobRole"].classes_
-            )
+            list(encoders["JobRole"].classes_)
         )
 
         job_level = st.selectbox(
@@ -486,6 +469,7 @@ with st.sidebar:
             "OverTime",
             ["Yes", "No"]
         )
+
 
     # ========================================================
     # SALARY DETAILS
@@ -526,6 +510,7 @@ with st.sidebar:
             "Stock Option Level",
             [0, 1, 2, 3]
         )
+
 
     # ========================================================
     # EXPERIENCE DETAILS
@@ -582,6 +567,7 @@ with st.sidebar:
             value=2
         )
 
+
     # ========================================================
     # ADDITIONAL DETAILS
     # ========================================================
@@ -617,9 +603,7 @@ with st.sidebar:
 
         age_group = st.selectbox(
             "Age Group",
-            list(
-                encoders["AgeGroup"].classes_
-            )
+            list(encoders["AgeGroup"].classes_)
         )
 
         income_group = st.selectbox(
@@ -629,17 +613,14 @@ with st.sidebar:
 
         experience_level = st.selectbox(
             "Experience Level",
-            list(
-                encoders["ExperienceLevel"].classes_
-            )
+            list(encoders["ExperienceLevel"].classes_)
         )
 
         company_tenure = st.selectbox(
             "Company Tenure",
-            list(
-                encoders["CompanyTenure"].classes_
-            )
+            list(encoders["CompanyTenure"].classes_)
         )
+
 
     st.divider()
 
@@ -659,148 +640,44 @@ if predict:
     input_data = pd.DataFrame({
 
         "Age": [age],
-
-        "BusinessTravel": [
-            business_travel
-        ],
-
-        "DailyRate": [
-            daily_rate
-        ],
-
-        "Department": [
-            department
-        ],
-
-        "DistanceFromHome": [
-            distance_from_home
-        ],
-
-        "Education": [
-            education
-        ],
-
-        "EducationField": [
-            education_field
-        ],
-
+        "BusinessTravel": [business_travel],
+        "DailyRate": [daily_rate],
+        "Department": [department],
+        "DistanceFromHome": [distance_from_home],
+        "Education": [education],
+        "EducationField": [education_field],
         "EmployeeCount": [1],
-
         "EmployeeNumber": [1],
-
-        "EnvironmentSatisfaction": [
-            environment_satisfaction
-        ],
-
-        "Gender": [
-            gender
-        ],
-
-        "HourlyRate": [
-            hourly_rate
-        ],
-
-        "JobInvolvement": [
-            job_involvement
-        ],
-
-        "JobLevel": [
-            job_level
-        ],
-
-        "JobRole": [
-            job_role
-        ],
-
-        "JobSatisfaction": [
-            job_satisfaction
-        ],
-
-        "MaritalStatus": [
-            marital_status
-        ],
-
-        "MonthlyIncome": [
-            monthly_income
-        ],
-
+        "EnvironmentSatisfaction": [environment_satisfaction],
+        "Gender": [gender],
+        "HourlyRate": [hourly_rate],
+        "JobInvolvement": [job_involvement],
+        "JobLevel": [job_level],
+        "JobRole": [job_role],
+        "JobSatisfaction": [job_satisfaction],
+        "MaritalStatus": [marital_status],
+        "MonthlyIncome": [monthly_income],
         "MonthlyRate": [10000],
-
-        "NumCompaniesWorked": [
-            num_companies_worked
-        ],
-
+        "NumCompaniesWorked": [num_companies_worked],
         "Over18": ["Y"],
-
-        "OverTime": [
-            overtime
-        ],
-
-        "PercentSalaryHike": [
-            percent_salary_hike
-        ],
-
-        "PerformanceRating": [
-            performance_rating
-        ],
-
-        "RelationshipSatisfaction": [
-            relationship_satisfaction
-        ],
-
+        "OverTime": [overtime],
+        "PercentSalaryHike": [percent_salary_hike],
+        "PerformanceRating": [performance_rating],
+        "RelationshipSatisfaction": [relationship_satisfaction],
         "StandardHours": [80],
-
-        "StockOptionLevel": [
-            stock_option_level
-        ],
-
-        "TotalWorkingYears": [
-            total_working_years
-        ],
-
-        "TrainingTimesLastYear": [
-            training_times_last_year
-        ],
-
-        "WorkLifeBalance": [
-            work_life_balance
-        ],
-
-        "YearsAtCompany": [
-            years_at_company
-        ],
-
-        "YearsInCurrentRole": [
-            years_in_current_role
-        ],
-
-        "YearsSinceLastPromotion": [
-            years_since_last_promotion
-        ],
-
-        "YearsWithCurrManager": [
-            years_with_current_manager
-        ],
-
-        "AgeGroup": [
-            age_group
-        ],
-
-        "IncomeGroup": [
-            income_group
-        ],
-
-        "ExperienceLevel": [
-            experience_level
-        ],
-
-        "DistanceCategory": [
-            distance_category
-        ],
-
-        "CompanyTenure": [
-            company_tenure
-        ]
+        "StockOptionLevel": [stock_option_level],
+        "TotalWorkingYears": [total_working_years],
+        "TrainingTimesLastYear": [training_times_last_year],
+        "WorkLifeBalance": [work_life_balance],
+        "YearsAtCompany": [years_at_company],
+        "YearsInCurrentRole": [years_in_current_role],
+        "YearsSinceLastPromotion": [years_since_last_promotion],
+        "YearsWithCurrManager": [years_with_current_manager],
+        "AgeGroup": [age_group],
+        "IncomeGroup": [income_group],
+        "ExperienceLevel": [experience_level],
+        "DistanceCategory": [distance_category],
+        "CompanyTenure": [company_tenure]
     })
 
 
@@ -824,7 +701,6 @@ if predict:
         )
 
         st.exception(e)
-
         st.stop()
 
 
@@ -832,13 +708,19 @@ if predict:
     # MODEL PREDICTION
     # ========================================================
 
-    prediction = model.predict(
-        input_data
-    )
+    try:
 
-    probability = model.predict_proba(
-        input_data
-    )[0][1]
+        prediction = model.predict(input_data)
+
+        probability = model.predict_proba(
+            input_data
+        )[0][1]
+
+    except Exception as e:
+
+        st.error("❌ Model prediction failed.")
+        st.exception(e)
+        st.stop()
 
 
     # ========================================================
@@ -847,37 +729,27 @@ if predict:
 
     st.markdown("---")
 
-    st.header("🎯 Employee Risk Assessment")
+    st.subheader("🎯 Employee Risk Assessment")
 
-    result_col1, result_col2 = st.columns(2)
+    if prediction[0] == 1:
 
+        st.error(
+            "⚠️ Employee is likely to leave."
+        )
 
-    with result_col1:
+    else:
 
-        if prediction[0] == 1:
-
-            st.error(
-                "⚠️ Employee is likely to leave."
-            )
-
-        else:
-
-            st.success(
-                "✅ Employee is likely to stay."
-            )
-
-
-    with result_col2:
-
-        st.metric(
-            "Attrition Probability",
-            f"{probability * 100:.2f}%"
+        st.success(
+            "✅ Employee is likely to stay."
         )
 
 
-    st.progress(
-        float(probability)
+    st.metric(
+        "Attrition Probability",
+        f"{probability * 100:.2f}%"
     )
+
+    st.progress(float(probability))
 
 
     # ========================================================
@@ -917,6 +789,7 @@ if predict:
 
     st.subheader("💡 HR Recommendations")
 
+
     if risk_level == "High":
 
         st.warning(
@@ -931,6 +804,7 @@ if predict:
             """
         )
 
+
     elif risk_level == "Medium":
 
         st.info(
@@ -943,6 +817,7 @@ if predict:
             - Improve manager-employee communication.
             """
         )
+
 
     else:
 
@@ -964,7 +839,7 @@ if predict:
 
 st.markdown("---")
 
-st.header("🔍 Key Attrition Drivers")
+st.subheader("🔍 Key Attrition Drivers")
 
 st.caption(
     "Top factors contributing to the machine-learning model's prediction."
@@ -1059,12 +934,10 @@ try:
 
 
     st.plotly_chart(
-
-        fig_importance,
-
-        use_container_width=True
-
+          fig_importance,
+            use_container_width=True
     )
+
 
 except Exception as e:
 
@@ -1089,3 +962,4 @@ st.caption(
     "Predictions should be validated with organizational data "
     "before being used for real HR decisions."
 )
+
